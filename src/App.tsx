@@ -1,4 +1,4 @@
-import Accordian from "./Accordian";
+import Accordian from "./Accordion";
 
 const faqs: FAQ[] = [
   {
@@ -14,15 +14,15 @@ const faqs: FAQ[] = [
 
 function App() {
   return (
-    <main className="min-h-screen bg-fuchsia-400 grid place-items-center font-inter">
-      <div className="bg-neutral-50 rounded-xl backdrop-blur-xl w-[70vw] p-12 min-h-[70vh]">
-        <h1 className="font-extrabold text-3xl mb-8 text-neutral-950">
+    <main className="grid min-h-screen bg-fuchsia-400 place-items-center font-inter">
+      <div className="bg-neutral-50 rounded-xl backdrop-blur-xl mx-4 md:mx-0 md:w-[70vw] p-8 md:p-12 min-h-[70vh]">
+        <h1 className="mb-8 text-xl font-extrabold md:text-3xl text-neutral-950">
           Faqs section built with{" "}
           <a
             target="_blank"
             rel="norefer"
             href="https://headlessui.com/"
-            className="text-blue-600 hover:underline underline-offset-4 transition"
+            className="text-blue-600 transition hover:underline underline-offset-4"
           >
             headlessui
           </a>{" "}
@@ -31,7 +31,7 @@ function App() {
             target="_blank"
             rel="norefer"
             href="https://framer.com/motion"
-            className="text-blue-600 hover:underline underline-offset-4 transition"
+            className="text-blue-600 transition hover:underline underline-offset-4"
           >
             framer-motion
           </a>
@@ -41,19 +41,19 @@ function App() {
             <Accordian key={index} {...faq} />
           ))}
         </ul>
-        <p>
+        <p className="mb-2 text-sm md:text-lg">
           Want to know how to build this ? Click{" "}
           <a
             target="_blank"
             rel="norefer"
-            href="https://headlessui.com/"
+            href="https://dev.to/bhendi/how-to-build-an-accordion-with-headlessui-framer-motion-and-tailwindcss-62h"
             className="text-blue-600"
           >
             here
           </a>{" "}
           to find out.
         </p>
-        <p>
+        <p className="text-sm md:text-lg">
           Grab the source code on{" "}
           <a
             target="_blank"

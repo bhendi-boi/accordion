@@ -2,12 +2,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Disclosure } from "@headlessui/react";
 import { ArrowSmallDownIcon } from "@heroicons/react/24/outline";
 
-const Accordian = ({ question, answer }: FAQ) => {
+const Accordion = ({ question, answer }: FAQ) => {
   return (
     <Disclosure as="li">
       {({ open }) => (
         <>
-          <Disclosure.Button className="font-semibold text-xl inline-flex items-center cursor-pointer justify-between w-full mb-1 text-neutral-800">
+          <Disclosure.Button className="inline-flex items-center justify-between w-full mb-1 text-base font-semibold text-left cursor-pointer md:text-xl text-neutral-800">
             {question}{" "}
             <motion.span
               whileHover={{ backgroundColor: "rgb(161 161 170 / 0.3)" }}
@@ -47,4 +47,4 @@ const Accordian = ({ question, answer }: FAQ) => {
   );
 };
 
-export default Accordian;
+export default Accordion;
