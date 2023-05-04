@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from "framer-motion";
 import { Disclosure } from "@headlessui/react";
 import { ArrowSmallDownIcon } from "@heroicons/react/24/outline";
 
@@ -6,17 +7,40 @@ const Accordian = ({ question, answer }: FAQ) => {
     <Disclosure as="li">
       {({ open }) => (
         <>
-          <Disclosure.Button className="font-semibold text-xl inline-flex items-center cursor-pointer justify-between w-full mb-1">
+          <Disclosure.Button className="font-semibold text-xl inline-flex items-center cursor-pointer justify-between w-full mb-1 text-neutral-800">
             {question}{" "}
-            <span
-              className={`p-2 hover:bg-zinc-400/30 rounded-full ${
-                open ? "rotate-180" : ""
-              }`}
+            <motion.span
+              whileHover={{ backgroundColor: "rgb(161 161 170 / 0.3)" }}
+              initial={{ backgroundColor: "transparent" }}
+              animate={{ rotate: open ? 180 : 0 }}
+              transition={{
+                duration: 0.15,
+                type: "tween",
+              }}
+              className="p-2 rounded-full text-neutral-950"
             >
               <ArrowSmallDownIcon className="w-5 h-5" />
-            </span>
+            </motion.span>
           </Disclosure.Button>
-          <Disclosure.Panel className="text-sm">{answer}</Disclosure.Panel>
+          <AnimatePresence>
+            <Disclosure.Panel
+              as={motion.div}
+              initial={{ y: -20, opacity: 0.2 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{
+                y: -20,
+                opacity: 0.2,
+                transition: { duration: 0.2, type: "tween" },
+              }}
+              transition={{
+                duration: 0.15,
+                type: "tween",
+              }}
+              className="text-sm text-neutral-700"
+            >
+              {answer}
+            </Disclosure.Panel>
+          </AnimatePresence>
         </>
       )}
     </Disclosure>

@@ -15,11 +15,57 @@ const faqs: FAQ[] = [
 function App() {
   return (
     <main className="min-h-screen bg-fuchsia-400 grid place-items-center font-inter">
-      <ul className="bg-white rounded-lg backdrop-blur-lg w-[60vw] p-12 min-h-[60vh] flex flex-col gap-4">
-        {faqs.map((faq, index) => (
-          <Accordian key={index} {...faq} />
-        ))}
-      </ul>
+      <div className="bg-neutral-50 rounded-xl backdrop-blur-xl w-[70vw] p-12 min-h-[70vh]">
+        <h1 className="font-extrabold text-3xl mb-8 text-neutral-950">
+          Faqs section built with{" "}
+          <a
+            target="_blank"
+            rel="norefer"
+            href="https://headlessui.com/"
+            className="text-blue-600 hover:underline underline-offset-4 transition"
+          >
+            headlessui
+          </a>{" "}
+          and{" "}
+          <a
+            target="_blank"
+            rel="norefer"
+            href="https://framer.com/motion"
+            className="text-blue-600 hover:underline underline-offset-4 transition"
+          >
+            framer-motion
+          </a>
+        </h1>
+        <ul className="flex flex-col gap-4 mb-8">
+          {faqs.map((faq, index) => (
+            <Accordian key={index} {...faq} />
+          ))}
+        </ul>
+        <p>
+          Want to know how to build this ? Click{" "}
+          <a
+            target="_blank"
+            rel="norefer"
+            href="https://headlessui.com/"
+            className="text-blue-600"
+          >
+            here
+          </a>{" "}
+          to find out.
+        </p>
+        <p>
+          Grab the source code on{" "}
+          <a
+            target="_blank"
+            rel="norefer"
+            href="https://github.com/bhendi-boi/accordian"
+            className="text-blue-600"
+          >
+            github
+          </a>{" "}
+          .
+        </p>
+      </div>
     </main>
   );
 }
